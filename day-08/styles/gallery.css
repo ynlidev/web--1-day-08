@@ -235,6 +235,9 @@ a.site-name {
     /* set all row height based on the content inside the grid items - this is the default value */
     /* grid-template-rows: auto auto; */
     /* grid-template-rows: 10rem 300px auto; */
+
+    gap: 1rem;
+    justify-content: center;
   }
 
   .photo-gallery img {
@@ -245,10 +248,12 @@ a.site-name {
 
   .large-image {
     /* grid-column: 2/4; */
+    grid-column: span 2;
   }
 
   .large-image img {
-    /* grid-column: span 2; */
+    object-fit: cover;
+    object-position: left bottom;
   }
 
   .info-box {
