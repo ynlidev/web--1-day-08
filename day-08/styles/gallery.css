@@ -213,7 +213,10 @@ a.site-name {
     /* create a grid, make all childern grid items */
     display: grid;
     /* create 3 columns, 300px wide each  */
-    grid-template-columns: 18.75rem 18.75rem 18.75rem;
+    /* grid-template-columns: 18.75rem 18.75rem 18.75rem; */
+
+    /* create 3 columns of equal width to fill the grid container */
+    grid-template-columns: 1fr 1fr 1fr;
     /* create two rows, 200px height each */
     /* grid-template-rows: 12.5rem 12.5rem; */
     /* set all row height based on the content inside the grid items - this is the default value */
