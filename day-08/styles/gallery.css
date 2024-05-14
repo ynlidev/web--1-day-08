@@ -23,12 +23,12 @@
 /* Typography
 --------------------------------------------- */
 body {
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1.5;
-	color: #282828;
-	background-color: #ffffff;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #282828;
+  background-color: #ffffff;
 }
 
 h1,
@@ -37,85 +37,94 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: Georgia, Times, "Times New Roman", serif;
-	margin: .5em 0;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  margin: 0.5em 0;
 }
 
 h1 {
-	font-size: 2.5rem;
-	margin: 0 0 .5em;
+  font-size: 2.5rem;
+  margin: 0 0 0.5em;
 }
 
 h2 {
-	font-size: 1.75rem;
+  font-size: 1.75rem;
 }
 
 p {
-	margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 }
-
 
 /* Elements
 --------------------------------------------- */
 ul,
 ol {
-	margin: 1em 0;
-	padding: 0 0 0 2.5em;
+  margin: 1em 0;
+  padding: 0 0 0 2.5em;
 }
 
 figure {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
-
 
 /* Links
 --------------------------------------------- */
 a,
-a:visited { 
-	color: #f62424;
+a:visited {
+  color: #f62424;
 }
 
 a:hover,
 a:focus {
-	color: #f62424;
+  color: #f62424;
 }
 
 a:focus {
-	outline: 1px dotted #f62424;
+  outline: 1px dotted #f62424;
 }
 
 a:active {
-	color: #ffffff;
-	background-color: #f62424;
+  color: #ffffff;
+  background-color: #f62424;
 }
-
 
 /*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
 @media screen and (min-width: 68em) {
+  .site-wrapper {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 53rem) minmax(auto 22rem) 1fr;
+    grid-template-areas:
+      "header header header header"
+      ". main sidebar ."
+      "footer footer footer footer";
+  }
 
-	.site-wrapper {
-		
-	}
+  .site-wrapper.sidebar-left {
+    grid-template-columns: 1fr minmax(auto, 22rem) minmax(auto, 53rem) 1fr;
+    grid-template-areas:
+      "header header header header"
+      ". sidebar main ."
+      "footer footer footer footer";
+  }
 
-	.site-header {
-		
-	}
+  .site-header {
+    grid-area: header;
+  }
 
-	.site-main {
-		
-	}
+  .site-main {
+    /* padding: 0 5rem */
+    grid-area: main;
+  }
 
-	.site-sidebar {
-		
-	}
+  .site-sidebar {
+    grid-area: sidebar;
+  }
 
-	.site-footer {
-		
-	}
-
+  .site-footer {
+    grid-area: footer;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -125,148 +134,185 @@ a:active {
 /* Header
 --------------------------------------------- */
 .site-header {
-	background-color: #fffacd;
+  background-color: #fffacd;
 }
 
 a.site-name {
-	font-family: Georgia, Times, "Times New Roman", serif;
-	font-size: 1.75rem;
-	color: #282828;
-	text-decoration: none;
-	display: inline-block;
-	padding: 1rem;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 1.75rem;
+  color: #282828;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem;
 }
 
 .site-navigation {
-	position: relative;
+  position: relative;
 }
 
 .site-navigation ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	text-align: center;
-	background-color: #fffacd;
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background-color: #fffacd;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 
 .site-navigation.toggled ul {
-	display: block;
+  display: block;
 }
 
 .site-navigation a {
-	display: block;
-	padding: 1rem;
-	font-family: Georgia, Times, "Times New Roman", serif;
-	font-size: 1.25rem;
-	text-decoration: none;
-	color: #282828;
+  display: block;
+  padding: 1rem;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #282828;
 }
 
 .menu-toggle {
-	display: block;
-	background-color: transparent;
-	border: 0;
-	padding: 1rem;
-	position: absolute;
-	top: -4.5rem;
-	right: 1rem;
-	z-index: 2;
+  display: block;
+  background-color: transparent;
+  border: 0;
+  padding: 1rem;
+  position: absolute;
+  top: -4.5rem;
+  right: 1rem;
+  z-index: 2;
 }
 
 .menu-toggle:focus {
-	border: 0;
-	outline: 1px dotted;
+  border: 0;
+  outline: 1px dotted;
 }
 
 @media screen and (min-width: 68em) {
+  .menu-toggle {
+    display: none;
+  }
 
-	.menu-toggle {
-		display: none;
-	}
+  .site-header {
+    display: grid;
+	grid-template-columns: 1fr minmax(auto, 22rem) minmax(auto, 53rem) 1fr;
+	
+	  }
+  }
 
-	.site-header {
-		
-	}
+  .site-name {
+	grid-column: 2/3;
+  }
 
-	.site-name {
-		
-	}
+  .site-navigation {
+    padding-right: 1rem;
+  }
 
-	.site-navigation {
-		padding-right: 1rem;
-	}
+  .site-navigation ul,
+  .site-navigation.toggled ul {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+  }
 
-	.site-navigation ul,
-	.site-navigation.toggled ul {
-		display: flex;
-		justify-content: flex-end;
-		position: relative;
-	}
-
-	.site-navigation a {
-		line-height: 4.5rem;
-		padding: 0 1rem;
-	}
-
+  .site-navigation a {
+    line-height: 4.5rem;
+    padding: 0 1rem;
+  }
 }
-
 
 /* Main
 --------------------------------------------- */
 .site-main {
-	padding: 0 5rem;
+  padding: 0 5rem;
 }
 
 @media (min-width: 68em) {
+  .photo-gallery {
+    /* create a grid, make all childern grid items */
+    display: grid;
+    /* create 3 columns, 300px wide each  */
+    /* grid-template-columns: 18.75rem 18.75rem 18.75rem; */
 
-	.photo-gallery {
+    /* create 4 columns, 200px wide each */
 
-	}
+    grid-template-columns: repeat(4, 12.5rem);
 
-	.photo-gallery img {
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
+    /* Make all automatically generated rows 200px each */
+    grid-auto-rows: 12.5rem;
 
-	.large-image {
+    /* create 3 columns of equal width to fill the grid container */
+    /* grid-template-columns: 1fr 1fr 1fr; */
 
-	}
+    /* create 3 columns, first two are 300px, the last one will fill teh remaining space */
+    /* grid-template-columns: repeat(2, 18.75rem) 1fr; */
 
-	.large-image img {
+    /* create 3 columns, first two are 300px, the last one is minium 300px and maximum teh remaining space in the grid container */
+    /* grid-template-columns: repeat(2, 18.75rem) minmax(18.75rem, 1fr); */
+    /* create two rows, 200px height each */
+    /* grid-template-rows: 12.5rem 12.5rem; */
+    /* set all row height based on the content inside the grid items - this is the default value */
+    /* grid-template-rows: auto auto; */
+    /* grid-template-rows: 10rem 300px auto; */
 
-	}
+    gap: 1rem;
+    justify-content: center;
+    align-items: stretch;
+    justify-items: stretch;
+  }
 
-	.info-box {
-		background-color: #444444;
-		color: #ffffff;
-		padding: 1rem 2rem;
-	}
+  .photo-gallery img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 
+  .large-image {
+    /* grid-column: 2/4; */
+    grid-column: span 2;
+  }
+
+  .large-image img {
+    object-fit: cover;
+    object-position: left bottom;
+  }
+
+  .info-box {
+    background-color: #444444;
+    color: #ffffff;
+    padding: 1rem 2rem;
+
+    /* option 1 */
+    grid-row: span 2;
+    grid-column: span 2;
+    order: -1;
+
+    /* option 2 */
+    grid-column: 1/3;
+    grid-row: 1/3;
+  }
 }
-
 
 /* Footer
 --------------------------------------------- */
 .site-footer {
-	border-top: 1px solid #888888;
-	text-align: center;
-	padding: 2rem;
-	margin-bottom: 3.5rem;
+  border-top: 1px solid #888888;
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 3.5rem;
 }
 
 .site-footer p {
-	margin: 0;
+  margin: 0;
 }
 
 @media (min-width: 68em) {
-	.site-footer {
-		margin-bottom: 0;
-	}
+  .site-footer {
+    margin-bottom: 0;
+  }
 }
