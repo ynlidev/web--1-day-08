@@ -214,6 +214,10 @@ a.site-name {
     display: grid;
     /* create 3 columns, 300px wide each  */
     grid-template-columns: 18.75rem 18.75rem 18.75rem;
+    /* create two rows, 200px height each */
+    /* grid-template-rows: 12.5rem 12.5rem; */
+    /* set all row height based on the content inside the grid items - this is the default value */
+    grid-template-rows: auto auto;
   }
 
   .photo-gallery img {
